@@ -8,7 +8,7 @@ export default function NavBar() {
   useEffect(() => {     
     async function getName() {       
       const TOKEN = localStorage.getItem('token');       
-      const response = await fetch('http://localhost:8000/api/me', {         
+      const response = await fetch('https://bookcorner.pythonanywhere.com/api/me', {         
         headers: {           
           'Authorization': `Bearer ${TOKEN}`         
         }       

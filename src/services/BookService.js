@@ -1,7 +1,7 @@
 // services/bookService.js
 import axios from 'axios';
 
-const API_BASE_URL = 'http://127.0.0.1:8000/api';
+const API_BASE_URL = 'https://bookcorner.pythonanywhere.com/api';
 // const TOKEN = localStorage.getItem('token'); // Assuming you store the auth token in localStorage
 console.log(localStorage.getItem('token'));
 
