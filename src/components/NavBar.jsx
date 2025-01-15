@@ -2,7 +2,7 @@ import { Book, Bookmark, User } from "lucide-react";
 import { useState, useEffect } from "react";  
 
 export default function NavBar() {   
-  const [name, setName] = useState("Benita");
+  const [name, setName] = useState("Someone");
   const [isMenuOpen, setIsMenuOpen] = useState(false); // State to track if the mobile menu is open
 
   useEffect(() => {     

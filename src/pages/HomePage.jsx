@@ -151,6 +151,20 @@ const Bookshelf = ({ books, category }) => {
 };
 
 const ReadingNook = () => {
+  const [name, setName] = useState('');
+  useEffect(() => {     
+    async function getName() {       
+      const TOKEN = localStorage.getItem('token');       
+      const response = await fetch('https://bookcorner.pythonanywhere.com/api/me', {         
+        headers: {           
+          'Authorization': `Bearer ${TOKEN}`         
+        }       
+      });       
+      const username = await response.json();       
+      setName(username);     
+    }     
+    getName();   
+  }, []);   
   return (
     <div className="relative mb-12 bg-amber-900/10 rounded-xl overflow-hidden">
       <div className="absolute inset-0 bg-[url('/api/placeholder/800/400')] opacity-20" />
@@ -158,11 +172,10 @@ const ReadingNook = () => {
       <div className="relative h-full flex items-center px-12 py-6">
         <div className="max-w-lg">
           <h2 className="text-4xl font-serif text-amber-900 mb-4">
-            Happy Birthday Benita 🥳
+            {name == "Benita" ? "Happy Birthday Benita 🥳" : `Welcome to your corner of books!`}
           </h2>
           <p className="text-lg text-amber-800">
-            I know how much you love books so I figured this might be a useful
-            gift 😅.
+            {name == "Benita" ? "I know how much you love books so I figured this might be a useful gift 😅." : "Determined to making 2025 books wrapped easier to do 🙂‍↕️."}
           </p>
           <div className="flex gap-4 mt-6">
             <button
