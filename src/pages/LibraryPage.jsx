@@ -17,6 +17,8 @@ import NavBar from "../components/NavBar";
 import { bookService } from "../services/BookService";
 import BookCard from "../components/BookCard";
 
+const API_KEY = import.meta.env.VITE_GOOGLE_BOOKS_API_KEY;
+
 const SearchModal = ({ isOpen, onClose, onAddBook }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -29,7 +31,7 @@ const SearchModal = ({ isOpen, onClose, onAddBook }) => {
       const response = await fetch(
         `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(
           searchQuery
-        )}&key=AIzaSyBBwxlP2I5hjurTfUwXHKpIEyS-Oxbdv3w&maxResults=12`
+        )}&key=${API_KEY}&maxResults=12`
       );
       const data = await response.json();
       const formattedResults =
