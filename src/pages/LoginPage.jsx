@@ -32,7 +32,7 @@ const LoginPage = () => {
       if (response.ok) {
         localStorage.setItem('token', data.access);
         console.log(localStorage, data.access);
-        navigate('/library');
+        navigate('/');
       } else {
         setError('Invalid username or password');
       }
